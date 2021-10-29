@@ -16,8 +16,6 @@ const cartReducer = (state, action) => {
         items: updatedItems,
         totalAmount: updatedTotalAmount,
       };
-    case 'REMOVE':
-
     default:
       return defaultCartState;
   }

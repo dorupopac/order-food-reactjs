@@ -5,7 +5,7 @@ import CartContext from '../../store/cart-context';
 import classes from './Cart.module.css';
 
 const Cart = ({ onCloseClick }) => {
-  const { items, totalAmount, additem, removeItem } = useContext(CartContext);
+  const { items, totalAmount } = useContext(CartContext);
 
   useEffect(() => {
     const closeModal = e => {
