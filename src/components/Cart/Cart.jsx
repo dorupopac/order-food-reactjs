@@ -5,7 +5,7 @@ import CartContext from '../../store/cart-context';
 import classes from './Cart.module.css';
 
 const Cart = ({ onCloseClick }) => {
-  const { items, totalAmount } = useContext(CartContext);
+  const { items, totalAmount, addItem, removeItem } = useContext(CartContext);
 
   useEffect(() => {
     const closeModal = e => {
@@ -20,8 +20,12 @@ const Cart = ({ onCloseClick }) => {
   const newTotalAmount = `$${totalAmount.toFixed(2)}`;
   const hasItems = items.length > 0;
 
-  const cartItemRemoveHandler = id => {};
-  const cartItemAddHandler = item => {};
+  const cartItemRemoveHandler = id => {
+    removeItem(id);
+  };
+  const cartItemAddHandler = item => {
+    addItem({ ...item, amount: 1 });
+  };
 
   const cartItems = (
     <ul className={classes['cart-items']}>
